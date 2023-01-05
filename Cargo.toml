@@ -1,0 +1,32 @@
+[package]
+name = "hot-lib-reloader"
+version = "0.6.4"
+categories = ["development-tools"]
+edition = "2021"
+exclude = [".dir-locals.el", "DEV.org", "doc/*"]
+homepage = "https://github.com/rksm/hot-lib-reloader-rs"
+keywords = ["hot-reloading", "hot-reload", "autoreload", "live-programming"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/rksm/hot-lib-reloader-rs"
+description = "Utility to reload libraries on change. For faster feedback cycles."
+
+[dependencies]
+crc32fast = "1.3.2"
+hot-lib-reloader-macro = { version = "^0.6.4", path = "./macro" }
+libloading = "^0.7"
+log = "0.4.17"
+notify = "^4"
+thiserror = "1.0.32"
+
+[dev-dependencies]
+env_logger = "^0.9"
+lib_for_testing = { path = "tests/lib_for_testing" }
+
+[workspace]
+resolver = "2"
+members = ["macro", "macro-no-mangle-if-debug"]
+
+[features]
+default = []
+verbose = []
